@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" ><a href="{% url 'app:author-create' %}" class="btn btn-success">New</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted"><a href="{% url 'app:author-list' %}">Authors</a></h3>
+    </div>
+
+    {% block body %}
+    {% endblock body %}
+
+    <br>
+    <footer class="footer">
+        <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+</div> <!-- /container -->
+<script scr="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

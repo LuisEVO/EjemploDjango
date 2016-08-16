@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Saludation</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        {% for foo in object_list %}
+            <tr>
+                <td>{{ foo.salutation }}</td>
+                <td>{{ foo.name }}</td>
+                <td>{{ foo.email }}</td>
+                <td>
+                    <a href="{% url "app:author-detail" foo.id %}"><span class="glyphicon glyphicon-sunglasses"></span></a>
+                    <a href="{% url "app:author-update" foo.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="{% url "app:author-delete" foo.id %}"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock body %}
